@@ -72,14 +72,14 @@ def sing_song():
         ("Don`t far away and i hope you to stay", 0.09),
         ("You`re always make my day and i was like okay yeah\n\n", 0.08),
 
-        ("Ta..ta..ta tak perlu kau mengingat semua yang tlah berlalu....", 0.06),
+        ("Ta..ta..ta tak perlu kau mengingat semua yang tlah berlalu....", 0.07),
         ("Cukup bersyukur bahwa diriku masa depanmmu", 0.08),
         ("Semua akan aku berikan hanya untukmu u..u..u..u", 0.10),
         ("Hanya satu..u..u..u", 0.08),
         ("Hanya kamu\n\n", 0.08),
     ]
 
-    delays = [0.2, 0.5, 0.2, 0.2, 0.3, 0.5, 0.5, 1.3, 0.5, 0.5, 0.5]
+    delays = [0.2, 0.5, 0.2, 0.2, 0.3, 0.5, 0.5, 0.7, 0.6, 0.5, 0.5]
 
     last_time = 0
 
