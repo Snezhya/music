@@ -64,33 +64,34 @@ def sing_lyric(lyric, delay, speed):
 
 def sing_song():
     lyrics = [
-        ("Habiskan waktu", 0.06),
+        ("\n\nHabiskan waktu", 0.07),
         ("Hanya bersama dirimu\n\n", 0.09),
 
         ("Tak terbayangkan jika kita tidak berjumpa", 0.08),
         ("Hanya dirimulah yang buatku semakin cinta...", 0.08),
         ("Don`t far away and i hope you to stay", 0.09),
-        ("you`re always make my day and i was like okay yeah\n\n", 0.08),
+        ("You`re always make my day and i was like okay yeah\n\n", 0.08),
 
-        ("Ta..ta..ta tak perlu kau mengingat semua yang tlah berlalu", 0.06),
+        ("Ta..ta..ta tak perlu kau mengingat semua yang tlah berlalu....", 0.06),
         ("Cukup bersyukur bahwa diriku masa depanmmu", 0.08),
         ("Semua akan aku berikan hanya untukmu u..u..u..u", 0.10),
         ("Hanya satu..u..u..u", 0.08),
         ("Hanya kamu\n\n", 0.08),
     ]
 
-    delays = [0.4, 1.5, 3.0, 6.9, 10.7, 13.5, 17.5, 22.5, 24.5, 25.0, 28.6, 36.6, 43.0, 44.0, 46.0]
+    delays = [0.2, 0.5, 0.2, 0.2, 0.3, 0.5, 0.5, 1.3, 0.5, 0.5, 0.5]
 
-    threads = []
+    last_time = 0
+
     for i in range(len(lyrics)):
         lyric, speed = lyrics[i]
-        t = Thread(target=sing_lyric, args=(lyric, delays[i], speed))
-        threads.append(t)
-        t.start()
 
-    for thread in threads:
-        thread.join()
+        wait_time = delays[i] - last_time
+        if wait_time > 0:
+            time.sleep(wait_time)
 
+        animate_text(lyric, speed)
+        last_time = delays[i]
 
 if __name__ == "__main__":
     sing_song()
