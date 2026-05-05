@@ -44,10 +44,6 @@ def sing_song():
         ("Semua akan aku berikan hanya untukmu u..u..u..u", 0.10),
         ("Hanya satu..u..u..u", 0.13),
         ("Hanya kamu\n\n", 0.15),
-
-        ("Semua ", 0.15),
-        ("When the music makes you move", 0.10),
-        ("Baby, do it like you do...", 0.20)
     ]
 
     delays = [0.4, 2.5, 6.0, 10.5, 14.5, 16.5, 17.5, 18.7, 22.5, 25.0, 28.6, 36.6, 43.0, 44.0, 46.0]
