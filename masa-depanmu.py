@@ -5,7 +5,6 @@ import random
 
 lock = Lock()
 
-# warna terminal (ANSI)
 colors = [
     "\033[91m",  
     "\033[92m",  
@@ -31,13 +30,13 @@ def sing_lyric(lyric, delay, speed):
 
 def sing_song():
     lyrics = [
-        ("Habiskan waktu", 0.08),
-        ("Hanya bersama dirimu\n\n", 0.10),
+        ("Habiskan waktu", 0.06),
+        ("Hanya bersama dirimu\n\n", 0.09),
 
-        ("Tak terbayangkan jika kita tidak berjumpa", 0.09),
+        ("Tak terbayangkan jika kita tidak berjumpa", 0.08),
         ("Hanya dirimulah yang buatku semakin cinta", 0.08),
         ("Don`t far away and i hope you to stay", 0.10),
-        ("you`re always make my day and i was like okay yeah\n\n", 0.10),
+        ("you`re always make my day and i was like okay yeah\n\n", 0.08),
 
         ("Ta..ta..ta tak perlu kau mengingat semua yang tlah berlalu", 0.10),
         ("Cukup bersyukur bahwa diriku masa depanmmu", 0.23),
@@ -46,7 +45,7 @@ def sing_song():
         ("Hanya kamu\n\n", 0.15),
     ]
 
-    delays = [0.4, 2.5, 6.0, 10.5, 14.5, 16.5, 17.5, 18.7, 22.5, 25.0, 28.6, 36.6, 43.0, 44.0, 46.0]
+    delays = [0.4, 1.5, 3.0, 6.5, 11.5, 16.5, 17.5, 18.7, 22.5, 25.0, 28.6, 36.6, 43.0, 44.0, 46.0]
 
     threads = []
     for i in range(len(lyrics)):
