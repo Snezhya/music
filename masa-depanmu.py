@@ -19,10 +19,21 @@ reset = "\033[0m"
 def animate_text(text, delay=0.05):
     with lock:
         color = random.choice(colors)
-        for char in text:
-            sys.stdout.write(color + char + reset)
+
+        i = 0
+        while i < len(text):
+            if text[i:i+7] == "[pause=":
+                j = text.find("]", i)
+                pause_time = float(text[i+7:j])
+                time.sleep(pause_time)
+                i = j + 1
+                continue
+
+            sys.stdout.write(color + text[i] + reset)
             sys.stdout.flush()
             time.sleep(delay)
+            i += 1
+
         print()
 
 def idle_animation(stop_event):
@@ -40,12 +51,11 @@ def sing_lyric(lyric, delay, speed):
     t = Thread(target=idle_animation, args=(stop_event,))
     t.start()
 
-    time.sleep(delay)  # waktu tunggu
+    time.sleep(delay) 
 
-    stop_event.set()   # stop animasi
+    stop_event.set()  
     t.join()
 
-    # hapus spinner
     with lock:
         sys.stdout.write("\r ")
         sys.stdout.flush()
@@ -59,17 +69,17 @@ def sing_song():
 
         ("Tak terbayangkan jika kita tidak berjumpa", 0.08),
         ("Hanya dirimulah yang buatku semakin cinta...", 0.08),
-        ("Don`t far away and i hope you to stay", 0.08),
-        ("you`re always make my day and i was like okay yeah\n\n", 0.05),
+        ("Don`t far away and i hope you to stay", 0.09),
+        ("you`re always make my day and i was like okay yeah\n\n", 0.08),
 
-        ("Ta..ta..ta tak perlu kau mengingat semua yang tlah berlalu", 0.10),
-        ("Cukup bersyukur bahwa diriku masa depanmmu", 0.23),
+        ("Ta..ta..ta tak perlu kau mengingat semua yang tlah berlalu", 0.06),
+        ("Cukup bersyukur bahwa diriku masa depanmmu", 0.08),
         ("Semua akan aku berikan hanya untukmu u..u..u..u", 0.10),
-        ("Hanya satu..u..u..u", 0.13),
-        ("Hanya kamu\n\n", 0.15),
+        ("Hanya satu..u..u..u", 0.08),
+        ("Hanya kamu\n\n", 0.08),
     ]
 
-    delays = [0.4, 1.5, 3.0, 6.9, 11.0, 16.5, 17.5, 18.7, 22.5, 25.0, 28.6, 36.6, 43.0, 44.0, 46.0]
+    delays = [0.4, 1.5, 3.0, 6.9, 10.7, 13.5, 17.5, 22.5, 24.5, 25.0, 28.6, 36.6, 43.0, 44.0, 46.0]
 
     threads = []
     for i in range(len(lyrics)):
